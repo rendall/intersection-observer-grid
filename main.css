@@ -6,20 +6,20 @@
 body {
   font-family: arial;
 }
-body .container {
+body .view {
   border: solid black 1px;
   display: flex;
   flex-wrap: wrap;
-  width: 52rem;
-  height: 42rem;
+  height: 100vh;
+  width: 50%;
   overflow-y: scroll;
 }
-body .container h2 {
+body .view h2 {
   flex-basis: 100%;
   margin: 1rem;
   font-size: 3rem;
 }
-body .container article {
+body .view article.cell {
   border: solid red 1px;
   height: 10rem;
   width: 10rem;
@@ -27,7 +27,26 @@ body .container article {
   padding-top: 3rem;
   font-size: 3rem;
   color: gray;
+}
+body .view article.cell p {
+  background: none;
+}
+body .view article.cell p.number {
+  display: none;
+}
+body .view article.cell p.placeholder {
+  font-size: 1.5rem;
+}
+body .view article.cell.is-view {
+  color: red;
+  font-weight: bold;
   background-image: url(https://source.unsplash.com/random/160x160);
+}
+body .view article.cell.is-view p.placeholder {
+  display: none;
+}
+body .view article.cell.is-view p.number {
+  display: block;
 }
 
 /*# sourceMappingURL=main.css.map */

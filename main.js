@@ -2,26 +2,48 @@
 const createArticle = (i) => {
     const article = document.createElement("article");
     article.classList.add("cell");
-    article.innerText = `${i}`;
-    const container = document.querySelector(".container");
-    container === null || container === void 0 ? void 0 : container.appendChild(article);
+    const number = document.createElement("p");
+    number.innerText = `${i}`;
+    number.classList.add("number");
+    article.appendChild(number);
+    const placeholder = document.createElement("p");
+    placeholder.classList.add("placeholder");
+    placeholder.innerText = "placeholder";
+    article.appendChild(placeholder);
+    const view = document.querySelector(".view");
+    view === null || view === void 0 ? void 0 : view.appendChild(article);
+    return article;
 };
 const createHeader = (i) => {
     const h2 = document.createElement("h2");
     h2.innerText = `Header ${i}`;
-    const container = document.querySelector(".container");
-    container === null || container === void 0 ? void 0 : container.appendChild(h2);
+    const view = document.querySelector(".view");
+    view === null || view === void 0 ? void 0 : view.appendChild(h2);
 };
-const makeDivs = () => {
+const makeDivs = (observer) => {
+    const emptyArr = new Array(1000);
+    console.log({ emptyArr });
     for (let i = 0; i < 10000; i++) {
         if (i % 100 === 0)
             createHeader(i);
-        createArticle(i);
+        const article = createArticle(i);
+        observer.observe(article);
     }
 };
+const allCells = () => Array.from(document.querySelectorAll(".cells"));
 const load = () => {
-    makeDivs();
-    const cells = Array.from(document.querySelectorAll(".cell"));
-    cells.forEach((cell) => console.log(cell.getClientRects()[0].x));
+    const options = {
+        root: document.querySelector(".view"),
+        rootMargin: "20%",
+        threshold: 0.1,
+    };
+    const callback = (entries, observer) => {
+        entries.forEach((entry) => entry.isIntersecting
+            ? entry.target.classList.add("is-view")
+            : entry.target.classList.remove("is-view"));
+        console.log({ entries });
+    };
+    const observer = new IntersectionObserver(callback, options);
+    makeDivs(observer);
 };
 load();

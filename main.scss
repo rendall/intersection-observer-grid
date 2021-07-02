@@ -2,14 +2,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: arial;
-  .container {
+
+  .view {
     border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
-    width: 52rem;
-    height: 42rem;
+    height: 100vh;
+    width: 50%;
     overflow-y: scroll;
 
     h2 {
@@ -18,7 +20,7 @@ body {
       font-size: 3rem;
     }
 
-    article {
+    article.cell {
       border: solid red 1px;
       height: 10rem;
       width: 10rem;
@@ -26,7 +28,32 @@ body {
       padding-top: 3rem;
       font-size: 3rem;
       color: gray;
-      background-image: url(https://source.unsplash.com/random/160x160);
+
+      p {
+        background: none;
+      }
+
+      p.number {
+        display: none;
+      }
+
+      p.placeholder {
+        font-size: 1.5rem;
+      }
+
+      &.is-view {
+        color: red;
+        font-weight: bold;
+        background-image: url(https://source.unsplash.com/random/160x160);
+
+        p.placeholder {
+          display: none;
+        }
+
+        p.number {
+          display: block;
+        }
+      }
     }
   }
 }

@@ -1,28 +1,58 @@
 const createArticle = (i: number) => {
   const article = document.createElement("article");
   article.classList.add("cell");
-  article.innerText = `${i}`;
-  const container = document.querySelector(".container");
-  container?.appendChild(article);
+  const number = document.createElement("p")
+  number.innerText = `${i}`;
+  number.classList.add("number")
+  article.appendChild(number)
+
+  const placeholder = document.createElement("p")
+  placeholder.classList.add("placeholder")
+  placeholder.innerText="placeholder"
+  article.appendChild(placeholder)
+
+  const view = document.querySelector(".view");
+  view?.appendChild(article);
+  return article;
 };
 const createHeader = (i: number) => {
   const h2 = document.createElement("h2");
   h2.innerText = `Header ${i}`;
-  const container = document.querySelector(".container");
-  container?.appendChild(h2);
+  const view = document.querySelector(".view");
+  view?.appendChild(h2);
 };
-const makeDivs = () => {
+const makeDivs = (observer: IntersectionObserver) => {
+  const emptyArr = new Array(1000);
+
+  console.log({ emptyArr });
+
   for (let i = 0; i < 10000; i++) {
     if (i % 100 === 0) createHeader(i);
-    createArticle(i);
+    const article = createArticle(i);
+    observer.observe(article);
   }
 };
 
+const allCells = () =>
+  Array.from<HTMLDivElement>(document.querySelectorAll(".cells"));
+
 const load = () => {
-  makeDivs();
-  const cells = Array.from<HTMLDivElement>(document.querySelectorAll(".cell"));
-  cells.forEach(
-    (cell) => console.log(cell.getClientRects()[0].x)
-  );
+  const options = {
+    root: document.querySelector(".view"),
+    rootMargin: "20%",
+    threshold: 0.1,
+  };
+
+  const callback: IntersectionObserverCallback = (entries, observer) => {
+    entries.forEach((entry) =>
+      entry.isIntersecting
+        ? entry.target.classList.add("is-view")
+        : entry.target.classList.remove("is-view")
+    );
+    console.log({ entries });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  makeDivs(observer);
 };
 load();
