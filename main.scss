@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: arial;
+  .container {
+    border: solid black 1px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 52rem;
+    height: 42rem;
+    overflow-y: scroll;
+
+    h2 {
+      flex-basis: 100%;
+      margin: 1rem;
+      font-size: 3rem;
+    }
+
+    article {
+      border: solid red 1px;
+      height: 10rem;
+      width: 10rem;
+      text-align: center;
+      padding-top: 3rem;
+      font-size: 3rem;
+      color: gray;
+      background-image: url(https://source.unsplash.com/random/160x160);
+    }
+  }
+}
