@@ -37,18 +37,10 @@ body {
         display: none;
       }
 
-      p.placeholder {
-        font-size: 1.5rem;
-      }
-
       &.is-view {
         color: red;
         font-weight: bold;
         background-image: url(https://source.unsplash.com/random/160x160);
-
-        p.placeholder {
-          display: none;
-        }
 
         p.number {
           display: block;

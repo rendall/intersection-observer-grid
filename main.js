@@ -6,10 +6,6 @@ const createArticle = (i) => {
     number.innerText = `${i}`;
     number.classList.add("number");
     article.appendChild(number);
-    const placeholder = document.createElement("p");
-    placeholder.classList.add("placeholder");
-    placeholder.innerText = "placeholder";
-    article.appendChild(placeholder);
     const view = document.querySelector(".view");
     view === null || view === void 0 ? void 0 : view.appendChild(article);
     return article;
@@ -21,8 +17,6 @@ const createHeader = (i) => {
     view === null || view === void 0 ? void 0 : view.appendChild(h2);
 };
 const makeDivs = (observer) => {
-    const emptyArr = new Array(1000);
-    console.log({ emptyArr });
     for (let i = 0; i < 10000; i++) {
         if (i % 100 === 0)
             createHeader(i);

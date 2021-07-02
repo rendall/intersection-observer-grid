@@ -6,11 +6,6 @@ const createArticle = (i: number) => {
   number.classList.add("number")
   article.appendChild(number)
 
-  const placeholder = document.createElement("p")
-  placeholder.classList.add("placeholder")
-  placeholder.innerText="placeholder"
-  article.appendChild(placeholder)
-
   const view = document.querySelector(".view");
   view?.appendChild(article);
   return article;
@@ -22,10 +17,6 @@ const createHeader = (i: number) => {
   view?.appendChild(h2);
 };
 const makeDivs = (observer: IntersectionObserver) => {
-  const emptyArr = new Array(1000);
-
-  console.log({ emptyArr });
-
   for (let i = 0; i < 10000; i++) {
     if (i % 100 === 0) createHeader(i);
     const article = createArticle(i);

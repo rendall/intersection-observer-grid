@@ -34,16 +34,10 @@ body .view article.cell p {
 body .view article.cell p.number {
   display: none;
 }
-body .view article.cell p.placeholder {
-  font-size: 1.5rem;
-}
 body .view article.cell.is-view {
   color: red;
   font-weight: bold;
   background-image: url(https://source.unsplash.com/random/160x160);
-}
-body .view article.cell.is-view p.placeholder {
-  display: none;
 }
 body .view article.cell.is-view p.number {
   display: block;
