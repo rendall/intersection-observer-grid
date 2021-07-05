@@ -5,45 +5,76 @@
 
 body {
   font-family: arial;
+  display: flex;
 
-  .view {
-    border: solid black 1px;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    width: 50%;
-    overflow-y: scroll;
+  section {
+    width: 50vw;
+    &.view {
+      border: solid black 1px;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100vh;
+      width: 50%;
+      overflow-y: scroll;
 
-    h2 {
-      flex-basis: 100%;
-      margin: 1rem;
-      font-size: 3rem;
-    }
-
-    article.cell {
-      border: solid red 1px;
-      height: 10rem;
-      width: 10rem;
-      text-align: center;
-      padding-top: 3rem;
-      font-size: 3rem;
-      color: gray;
-
-      p {
-        background: none;
+      h2 {
+        flex-basis: 100%;
+        margin: 1rem;
+        font-size: 3rem;
       }
 
-      p.number {
-        display: none;
-      }
+      article.cell {
+        border: solid red 1px;
+        height: 10rem;
+        width: 10rem;
+        text-align: center;
+        padding-top: 3rem;
+        font-size: 3rem;
+        color: gray;
 
-      &.is-view {
-        color: red;
-        font-weight: bold;
-        background-image: url(https://source.unsplash.com/random/160x160);
+        p {
+          background: none;
+        }
 
         p.number {
-          display: block;
+          display: none;
+        }
+
+        &.is-view {
+          color: red;
+          font-weight: bold;
+          background-image: url(https://source.unsplash.com/random/160x160);
+
+          p.number {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &.explanation {
+      padding: 1rem;
+
+      > h2,
+      p {
+        margin-bottom: 1rem;
+      }
+
+      input.value-display {
+        width: 3rem;
+      }
+
+      .observer-option {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+
+        input {
+          margin: 0 1rem;
+        }
+
+        input[type="range"] {
+          flex-grow: 1;
         }
       }
     }

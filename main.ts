@@ -1,10 +1,10 @@
 const createArticle = (i: number) => {
   const article = document.createElement("article");
   article.classList.add("cell");
-  const number = document.createElement("p")
+  const number = document.createElement("p");
   number.innerText = `${i}`;
-  number.classList.add("number")
-  article.appendChild(number)
+  number.classList.add("number");
+  article.appendChild(number);
 
   const view = document.querySelector(".view");
   view?.appendChild(article);
@@ -17,33 +17,59 @@ const createHeader = (i: number) => {
   view?.appendChild(h2);
 };
 const makeDivs = (observer: IntersectionObserver) => {
-  for (let i = 0; i < 10000; i++) {
+  document.querySelector(".view")!.innerHTML = "";
+  const numElements = parseInt(
+    (document.getElementById("number-value") as HTMLInputElement)?.value ??
+      10000
+  );
+
+  for (let i = 0; i < numElements; i++) {
     if (i % 100 === 0) createHeader(i);
     const article = createArticle(i);
     observer.observe(article);
   }
 };
 
-const allCells = () =>
-  Array.from<HTMLDivElement>(document.querySelectorAll(".cells"));
+const onSliderInput = (input: HTMLInputElement) => {
+  const id = `${input.id}-value`;
+  const output = document.getElementById(id) as HTMLInputElement;
+  output.value = input.value;
+};
+const onSliderChange = (e: InputEvent) => setup();
 
-const load = () => {
-  const options = {
-    root: document.querySelector(".view"),
-    rootMargin: "20%",
-    threshold: 0.1,
-  };
-
+const setup = () => {
+  const allCells = () =>
+    Array.from<HTMLDivElement>(document.querySelectorAll(".cells"));
   const callback: IntersectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) =>
       entry.isIntersecting
         ? entry.target.classList.add("is-view")
         : entry.target.classList.remove("is-view")
     );
-    console.log({ entries });
+
+    const renderedNum = document.querySelectorAll(".is-view").length
+
+    document.getElementById("rendered-number")!.innerText = `${renderedNum} elements rendered`
+    console.log(`${renderedNum} elements rendered`)
+
   };
 
-  const observer = new IntersectionObserver(callback, options);
+  const rootMargin = `${
+    (document.getElementById("margin-value") as HTMLInputElement).value ?? 0
+  }%`;
+  const threshold = parseInt(
+    (document.getElementById("threshold-value") as HTMLInputElement).value ?? 0
+  );
+
+  console.log("observer options", { rootMargin, threshold });
+
+  const observer = new IntersectionObserver(callback, {
+    root: document.querySelector(".view"),
+    rootMargin,
+    threshold,
+  });
+
   makeDivs(observer);
 };
-load();
+
+setup();

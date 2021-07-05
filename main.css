@@ -5,8 +5,12 @@
 
 body {
   font-family: arial;
+  display: flex;
 }
-body .view {
+body section {
+  width: 50vw;
+}
+body section.view {
   border: solid black 1px;
   display: flex;
   flex-wrap: wrap;
@@ -14,12 +18,12 @@ body .view {
   width: 50%;
   overflow-y: scroll;
 }
-body .view h2 {
+body section.view h2 {
   flex-basis: 100%;
   margin: 1rem;
   font-size: 3rem;
 }
-body .view article.cell {
+body section.view article.cell {
   border: solid red 1px;
   height: 10rem;
   width: 10rem;
@@ -28,19 +32,40 @@ body .view article.cell {
   font-size: 3rem;
   color: gray;
 }
-body .view article.cell p {
+body section.view article.cell p {
   background: none;
 }
-body .view article.cell p.number {
+body section.view article.cell p.number {
   display: none;
 }
-body .view article.cell.is-view {
+body section.view article.cell.is-view {
   color: red;
   font-weight: bold;
   background-image: url(https://source.unsplash.com/random/160x160);
 }
-body .view article.cell.is-view p.number {
+body section.view article.cell.is-view p.number {
   display: block;
+}
+body section.explanation {
+  padding: 1rem;
+}
+body section.explanation > h2,
+body section.explanation p {
+  margin-bottom: 1rem;
+}
+body section.explanation input.value-display {
+  width: 3rem;
+}
+body section.explanation .observer-option {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+body section.explanation .observer-option input {
+  margin: 0 1rem;
+}
+body section.explanation .observer-option input[type=range] {
+  flex-grow: 1;
 }
 
 /*# sourceMappingURL=main.css.map */
