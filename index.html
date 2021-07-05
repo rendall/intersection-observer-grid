@@ -23,23 +23,23 @@
 
 		<div class="observer-option">
 			<label for="threshold"><code>threshold</code></label>
-			<input value="1.0" id="threshold-value" class="value-display">
-			<input value="1.0" oninput=onSliderInput(this) onchange=onSliderChange(this) type="range" id="threshold"
+			<input value="1.0" id="threshold-value" class="value-display" oninput=onSliderChange()>
+			<input value="1.0" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="threshold"
 				name="threshold" min="0" max="1.0" step="0.1">
 		</div>
 
 		<div class="observer-option">
 			<label for="margin"><code>margin</code></label>
-			<input valueAsNumber value="0" id="margin-value" class="value-display">%
-			<input value="0" oninput=onSliderInput(this) onchange=onSliderChange(this) type="range" id="margin" name="margin"
+			<input value="0" id="margin-value" class="value-display" oninput=onSliderChange()>%
+			<input value="0" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="margin" name="margin"
 				min="0" max="100" step="1">
 		</div>
 
 		<div class="observer-option">
 			<label for="number"><code>number</code></label>
-			<input value="10000" id="number-value" class="value-display">
-			<input value="10000" oninput=onSliderInput(this) onchange=onSliderChange(this) type="range" id="number"
-				name="number" min="10" max="50000" step="10">
+			<input value="10000" id="number-value" class="value-display" oninput=onSliderChange()>
+			<input value="10000" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="number" name="number"
+				min="10" max="50000" step="10">
 		</div>
 
 		<p id="rendered-number"></p>
