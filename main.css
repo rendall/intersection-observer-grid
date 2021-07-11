@@ -30,11 +30,22 @@ body section.view article.cell {
   height: 10rem;
   margin: 1rem;
   padding-top: 3rem;
+  position: relative;
   text-align: center;
   width: 10rem;
 }
+body section.view article.cell img.image-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 body section.view article.cell p {
   background: none;
+}
+body section.view article.cell p.number-display {
+  position: absolute;
+  width: 100%;
+  color: red;
 }
 body section.view article.cell p.number {
   display: none;
