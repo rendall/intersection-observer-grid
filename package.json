@@ -22,6 +22,6 @@
     "react-dom": "^17.0.2"
   },
   "version": "1.0.0",
-  "description": "My webpack project",
-  "name": "my-webpack-project"
+  "description": "React intersection observer PoC",
+  "name": "react-intersection-observer-poc"
 }
