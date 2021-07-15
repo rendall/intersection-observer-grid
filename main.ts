@@ -23,11 +23,11 @@ const makeDivs = (observer: IntersectionObserver) => {
       10000
   );
 
-  for (let i = 0; i < numElements; i++) {
+  (new Array(numElements)).fill(0).map((z, i) => i).forEach( i => {
     if (i % 100 === 0) createHeader(i);
     const article = createArticle(i);
     observer.observe(article);
-  }
+  })
 };
 
 const onSliderInput = (input: HTMLInputElement) => {
