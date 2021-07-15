@@ -5,3 +5,5 @@ Each component has two modes, a _placeholder_ mode that is minimal, and a _rende
 Ideally, the user will never see the _placeholder_ mode, and will just think it is a long scroll of components in _render_ mode. In practice, there is some delay.
 
 The demo is here: <https://rendall.github.io/virtual-grid/index.html>
+
+React version here:  <https://rendall.github.io/virtual-grid/react.html>
