@@ -3,14 +3,14 @@
   box-sizing: border-box;
 }
 
-body {
+main {
   font-family: arial;
   display: flex;
 }
-body section {
+main section {
   width: 50vw;
 }
-body section.view {
+main section.view {
   border: solid black 1px;
   display: flex;
   flex-wrap: wrap;
@@ -18,12 +18,12 @@ body section.view {
   width: 50%;
   overflow-y: scroll;
 }
-body section.view h2 {
+main section.view h2 {
   flex-basis: 100%;
   margin: 1rem;
   font-size: 3rem;
 }
-body section.view article.cell {
+main section.view article.cell {
   border: solid red 1px;
   color: gray;
   font-size: 3rem;
@@ -34,49 +34,49 @@ body section.view article.cell {
   text-align: center;
   width: 10rem;
 }
-body section.view article.cell img.image-display {
+main section.view article.cell img.image-display {
   position: absolute;
   top: 0;
   left: 0;
 }
-body section.view article.cell p {
+main section.view article.cell p {
   background: none;
 }
-body section.view article.cell p.number-display {
+main section.view article.cell p.number-display {
   position: absolute;
   width: 100%;
   color: red;
 }
-body section.view article.cell p.number {
+main section.view article.cell p.number {
   display: none;
 }
-body section.view article.cell.is-view {
+main section.view article.cell.is-view {
   color: red;
   font-weight: bold;
   background-image: url(https://source.unsplash.com/random/160x160);
 }
-body section.view article.cell.is-view p.number {
+main section.view article.cell.is-view p.number {
   display: block;
 }
-body section.explanation {
+main section.explanation {
   padding: 1rem;
 }
-body section.explanation > h2,
-body section.explanation p {
+main section.explanation > h2,
+main section.explanation p {
   margin-bottom: 1rem;
 }
-body section.explanation input.value-display {
+main section.explanation input.value-display {
   width: 3rem;
 }
-body section.explanation .observer-option {
+main section.explanation .observer-option {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
 }
-body section.explanation .observer-option input {
+main section.explanation .observer-option input {
   margin: 0 1rem;
 }
-body section.explanation .observer-option input[type=range] {
+main section.explanation .observer-option input[type=range] {
   flex-grow: 1;
 }
 
