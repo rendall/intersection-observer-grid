@@ -1,8 +1,9 @@
 {
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
+    "build:dev": "npm start && webpack --mode=development",
+    "build:prod": "npm start && webpack --mode=production --node-env=production",
+    "build:sass": "npx sass main.scss:main.css",
     "start": "npx http-server -a localhost",
     "watch": "webpack --watch"
   },
