@@ -1,7 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {VirtualGrid} from './components/VirtualGrid'
-const e = React.createElement;
-
+import {App} from './components/App'
 const domContainer = document.querySelector('#react-app');
-ReactDOM.render(e(VirtualGrid), domContainer);
+ReactDOM.render(React.createElement(App), domContainer);

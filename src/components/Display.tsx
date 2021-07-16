@@ -44,7 +44,7 @@ const updateState = (state: { isInView: boolean[] }, entries: IntersectionObserv
   const isInView = state.isInView.map((status, i) => replaceWithEntry(i, status, entries))
   return { ...state, isInView }
 }
-export class VirtualGrid extends React.Component<{}, { isInView: boolean[] }> {
+export class Display extends React.Component<{}, { isInView: boolean[] }> {
   observer: IntersectionObserver;
   callback: IntersectionObserverCallback = (entries, observer) => {
     const newState = updateState(this.state, entries)
@@ -57,20 +57,26 @@ export class VirtualGrid extends React.Component<{}, { isInView: boolean[] }> {
     this.observer = getObserver(this.callback);
   }
 
+  getHeader = (i: number): JSX.Element => <h2 key={`h${i}`}>Header {i}</h2>
+
+  // Create display cells
   cells = () =>
     ascendingArray.map((i) => (
-      <>
-        {(i % 100) === 0 && <h2 key={`h${i}`}>Header {i}</h2>}
-        <Cell
-          isInView={this.state.isInView[i]}
-          observer={this.observer}
-          i={i}
-          key={`${i}`}
-        />
-      </>
-    ));
+      <Cell
+        isInView={this.state.isInView[i]}
+        observer={this.observer}
+        i={i}
+        key={`${i}`}
+      />
+    ))
+
+  // Add headers
+  list = () => this.cells().reduce<JSX.Element[]>((items, item, i) => (i % 100) ?
+    [...items, item] :
+    [...items, this.getHeader(i), item]
+    , [])
 
   render() {
-    return <>{this.cells()}</>;
+    return <section className={"display"}>{this.list()}</section>;
   }
 }

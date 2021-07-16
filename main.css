@@ -10,7 +10,7 @@ main {
 main section {
   width: 50vw;
 }
-main section.view {
+main section.display {
   border: solid black 1px;
   display: flex;
   flex-wrap: wrap;
@@ -18,12 +18,12 @@ main section.view {
   width: 50%;
   overflow-y: scroll;
 }
-main section.view h2 {
+main section.display h2 {
   flex-basis: 100%;
   margin: 1rem;
   font-size: 3rem;
 }
-main section.view article.cell {
+main section.display article.cell {
   border: solid red 1px;
   color: gray;
   font-size: 3rem;
@@ -34,49 +34,49 @@ main section.view article.cell {
   text-align: center;
   width: 10rem;
 }
-main section.view article.cell img.image-display {
+main section.display article.cell img.image-display {
   position: absolute;
   top: 0;
   left: 0;
 }
-main section.view article.cell p {
+main section.display article.cell p {
   background: none;
 }
-main section.view article.cell p.number-display {
+main section.display article.cell p.number-display {
   position: absolute;
   width: 100%;
   color: red;
 }
-main section.view article.cell p.number {
+main section.display article.cell p.number {
   display: none;
 }
-main section.view article.cell.is-view {
+main section.display article.cell.is-view {
   color: red;
   font-weight: bold;
   background-image: url(https://source.unsplash.com/random/160x160);
 }
-main section.view article.cell.is-view p.number {
+main section.display article.cell.is-view p.number {
   display: block;
 }
-main section.explanation {
+main section.controller {
   padding: 1rem;
 }
-main section.explanation > h2,
-main section.explanation p {
+main section.controller > h2,
+main section.controller p {
   margin-bottom: 1rem;
 }
-main section.explanation input.value-display {
+main section.controller input.value-display {
   width: 3rem;
 }
-main section.explanation .observer-option {
+main section.controller .observer-option {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
 }
-main section.explanation .observer-option input {
+main section.controller .observer-option input {
   margin: 0 1rem;
 }
-main section.explanation .observer-option input[type=range] {
+main section.controller .observer-option input[type=range] {
   flex-grow: 1;
 }
 

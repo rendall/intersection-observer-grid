@@ -9,7 +9,7 @@ main {
 
   section {
     width: 50vw;
-    &.view {
+    &.display {
       border: solid black 1px;
       display: flex;
       flex-wrap: wrap;
@@ -67,7 +67,7 @@ main {
       }
     }
 
-    &.explanation {
+    &.controller {
       padding: 1rem;
 
       > h2,
