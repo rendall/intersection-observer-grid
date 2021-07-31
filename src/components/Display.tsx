@@ -12,7 +12,8 @@ const Cell = (props: CellProps) => {
   const observeRef = (observer: IntersectionObserver) =>
     React.useCallback((node) => {
       observer.observe(node);
-    }, []);
+    }, [observer]);
+
   const id = `${props.i}`;
 
   return (
