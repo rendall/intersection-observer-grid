@@ -6,18 +6,18 @@ const createArticle = (i: number) => {
   number.classList.add("number");
   article.appendChild(number);
 
-  const view = document.querySelector(".view");
+  const view = document.querySelector(".display");
   view?.appendChild(article);
   return article;
 };
 const createHeader = (i: number) => {
   const h2 = document.createElement("h2");
   h2.innerText = `Header ${i}`;
-  const view = document.querySelector(".view");
+  const view = document.querySelector(".display");
   view?.appendChild(h2);
 };
 const makeDivs = (observer: IntersectionObserver) => {
-  document.querySelector(".view")!.innerHTML = "";
+  document.querySelector(".display")!.innerHTML = "";
   const numElements = parseInt(
     (document.getElementById("number-value") as HTMLInputElement)?.value ??
       10000
@@ -64,7 +64,7 @@ const setup = () => {
   console.log("observer options", { rootMargin, threshold });
 
   const observer = new IntersectionObserver(callback, {
-    root: document.querySelector(".view"),
+    root: document.querySelector(".display"),
     rootMargin,
     threshold,
   });

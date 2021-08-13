@@ -6,26 +6,26 @@ const createArticle = (i) => {
     number.innerText = `${i}`;
     number.classList.add("number");
     article.appendChild(number);
-    const view = document.querySelector(".view");
+    const view = document.querySelector(".display");
     view === null || view === void 0 ? void 0 : view.appendChild(article);
     return article;
 };
 const createHeader = (i) => {
     const h2 = document.createElement("h2");
     h2.innerText = `Header ${i}`;
-    const view = document.querySelector(".view");
+    const view = document.querySelector(".display");
     view === null || view === void 0 ? void 0 : view.appendChild(h2);
 };
 const makeDivs = (observer) => {
     var _a, _b;
-    document.querySelector(".view").innerHTML = "";
+    document.querySelector(".display").innerHTML = "";
     const numElements = parseInt((_b = (_a = document.getElementById("number-value")) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 10000);
-    for (let i = 0; i < numElements; i++) {
+    (new Array(numElements)).fill(0).map((z, i) => i).forEach(i => {
         if (i % 100 === 0)
             createHeader(i);
         const article = createArticle(i);
         observer.observe(article);
-    }
+    });
 };
 const onSliderInput = (input) => {
     const id = `${input.id}-value`;
@@ -48,7 +48,7 @@ const setup = () => {
     const threshold = parseInt((_b = document.getElementById("threshold-value").value) !== null && _b !== void 0 ? _b : 0);
     console.log("observer options", { rootMargin, threshold });
     const observer = new IntersectionObserver(callback, {
-        root: document.querySelector(".view"),
+        root: document.querySelector(".display"),
         rootMargin,
         threshold,
     });
