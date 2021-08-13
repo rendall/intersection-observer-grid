@@ -56,5 +56,9 @@ const setup = () => {
         threshold,
     });
     makeDivs(observer);
+    const toggleView = document.querySelector("#toggle-view");
+    toggleView.addEventListener("click", () => {
+        document.querySelector(".display").classList.toggle("list-view");
+    });
 };
 setup();

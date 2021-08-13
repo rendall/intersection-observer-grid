@@ -47,8 +47,10 @@ const onSliderInput = (input: HTMLInputElement) => {
 const onSliderChange = (e: InputEvent) => setup();
 
 const setup = () => {
+
   const allCells = () =>
     Array.from<HTMLDivElement>(document.querySelectorAll(".cells"));
+
   const callback: IntersectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) =>
       entry.isIntersecting
@@ -59,12 +61,12 @@ const setup = () => {
     const renderedNum = document.querySelectorAll(".is-view").length
 
     document.getElementById("rendered-number")!.innerText = `${renderedNum} elements rendered`
-
   };
 
   const rootMargin = `${
     (document.getElementById("margin-value") as HTMLInputElement).value ?? 0
   }%`;
+
   const threshold = parseInt(
     (document.getElementById("threshold-value") as HTMLInputElement).value ?? 0
   );
@@ -76,6 +78,11 @@ const setup = () => {
   });
 
   makeDivs(observer);
+
+  const toggleView = document.querySelector("#toggle-view") as HTMLButtonElement;
+  toggleView.addEventListener("click", () => {
+    document.querySelector(".display")!.classList.toggle("list-view");
+  });
 };
 
 setup();
