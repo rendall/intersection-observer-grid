@@ -28,31 +28,28 @@ export class Controller extends React.PureComponent<ControllerProps, ControllerS
       </p>
       <p>Zooming in and out is performant and works properly, because layout is performed by the browser engine and not
         javascript</p>
-      <div className="observer-option">
+      {/* <div className="observer-option">
         <label htmlFor="threshold-value"><code>threshold</code></label>
         <input value={threshold} id="threshold-value" onChange={this.handleChange} className="value-display" />
-        {/* <input value="1.0" id="threshold-value" className="value-display" oninput=onSliderChange()> */}
-        {/* <input value="1.0" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="threshold" name="threshold" min="0" max="1.0" step="0.1"> */}
         <input value={threshold} onChange={this.handleChange} type="range" id="threshold" name="threshold" min="0" max="1.0" step="0.1" />
       </div>
 
       <div className="observer-option">
         <label htmlFor="margin"><code>margin</code></label>
         <input value={margin} onChange={this.handleChange} id="margin-value" className="value-display" />
-        {/* <input value="0" id="margin-value" className="value-display" oninput=onSliderChange()>% */}
         <input value={margin} onChange={this.handleChange} type="range" id="margin" name="margin" min="0" max="100" step="1" />
-        {/* <input value="0" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="margin" name="margin" min="0" max="100" step="1"> */}
       </div>
 
       <div className="observer-option">
         <label htmlFor="number"><code>number</code></label>
-        {/* <input value="10000" id="number-value" className="value-display" oninput=onSliderChange()> */}
-        {/* <input value="10000" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="number" name="number" */}
         <input value={number} onChange={this.handleChange} id="number-value" className="value-display" />
         <input value={number} onChange={this.handleChange} type="range" id="number" name="number" min="10" max="50000" step="10" />
-      </div>
+      </div> */}
 
       <p id="rendered-number"></p>
+
+      <p><a href="./">See it done with vanilla JS</a></p>
+      <p><a href="https://github.com/rendall/intersection-observer-grid">Github repo</a></p>
     </section>
 
 
