@@ -10,7 +10,7 @@
 	<main>
 		<section class="display">
 		</section>
-		<section class="explanation">
+		<section class="controller">
 			<h2>Intersection Observer</h2>
 			<p>This proof of concept uses the <a
 					href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Interesection Observer</a>
@@ -38,14 +38,15 @@
 
 			<div class="observer-option">
 				<label for="number"><code>number</code></label>
-				<input value="10000" id="number-value" class="value-display" oninput=onSliderChange()>
-				<input value="10000" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="number"
-					name="number" min="10" max="50000" step="10">
+				<input value="1000" id="number-value" class="value-display" oninput=onSliderChange()>
+				<input value="1000" oninput=onSliderInput(this) onchange=onSliderChange() type="range" id="number" name="number"
+					min="10" max="50000" step="10">
 			</div>
 
 			<p id="rendered-number"></p>
 
-			<p><a href="./react.html"></a>See how to do it with React</a></p>
+			<p><a href="./react.html">See it done with React</a></p>
+			<p><a href="https://github.com/rendall/intersection-observer-grid">Github repo</a></p>
 
 		</section>
 

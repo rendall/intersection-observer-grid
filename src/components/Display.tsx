@@ -20,9 +20,9 @@ const Cell = (props: CellProps) => {
     <article
       id={id}
       ref={observeRef(props.observer)}
-      className={"cell"}
+      className={"cell is-react"}
     >
-      {props.isInView && <><img className="image-display" src="https://source.unsplash.com/random/160x160" /><p className="number-display">{props.i}</p></>}
+      {props.isInView && <><img className="image-display" src={`https://source.unsplash.com/random/160x160?${props.i}`} /><p className="number-display">{props.i}</p></>}
     </article>
   );
 };

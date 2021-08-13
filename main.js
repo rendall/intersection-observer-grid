@@ -2,10 +2,15 @@
 const createArticle = (i) => {
     const article = document.createElement("article");
     article.classList.add("cell");
-    const number = document.createElement("p");
-    number.innerText = `${i}`;
-    number.classList.add("number");
-    article.appendChild(number);
+    const imageDisplay = document.createElement("img");
+    imageDisplay.src = `https://source.unsplash.com/random/160x160?${i}`;
+    imageDisplay.classList.add('image-display');
+    imageDisplay.loading = "lazy";
+    article.appendChild(imageDisplay);
+    const numberDisplay = document.createElement("p");
+    numberDisplay.innerText = `${i}`;
+    numberDisplay.classList.add("number-display");
+    article.appendChild(numberDisplay);
     const view = document.querySelector(".display");
     view === null || view === void 0 ? void 0 : view.appendChild(article);
     return article;
@@ -42,11 +47,9 @@ const setup = () => {
             : entry.target.classList.remove("is-view"));
         const renderedNum = document.querySelectorAll(".is-view").length;
         document.getElementById("rendered-number").innerText = `${renderedNum} elements rendered`;
-        console.log(`${renderedNum} elements rendered`);
     };
     const rootMargin = `${(_a = document.getElementById("margin-value").value) !== null && _a !== void 0 ? _a : 0}%`;
     const threshold = parseInt((_b = document.getElementById("threshold-value").value) !== null && _b !== void 0 ? _b : 0);
-    console.log("observer options", { rootMargin, threshold });
     const observer = new IntersectionObserver(callback, {
         root: document.querySelector(".display"),
         rootMargin,

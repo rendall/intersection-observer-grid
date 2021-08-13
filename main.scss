@@ -26,43 +26,48 @@ main {
       article.cell {
         border: solid red 1px;
         color: gray;
-        font-size: 3rem;
         height: 10rem;
         margin: 1rem;
-        padding-top: 3rem;
+        overflow: hidden;
         position: relative;
-        text-align: center;
         width: 10rem;
 
         img.image-display {
           position: absolute;
           top: 0;
           left: 0;
+          display: none;
         }
 
         p {
           background: none;
 
           &.number-display {
-            position: absolute;
-            width: 100%;
             color: red;
-          }
-
-          &.number {
             display: none;
+            font-size: 3rem;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
           }
         }
 
-
-        &.is-view {
+        &.is-view,
+        &.is-react {
           color: red;
           font-weight: bold;
-          background-image: url(https://source.unsplash.com/random/160x160);
-
-          p.number {
+          p.number-display,
+          img.image-display {
             display: block;
           }
+        }
+      }
+
+      &.list-view {
+        article.cell {
+          width: 100%;
         }
       }
     }

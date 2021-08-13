@@ -1,10 +1,19 @@
 const createArticle = (i: number) => {
   const article = document.createElement("article");
   article.classList.add("cell");
-  const number = document.createElement("p");
-  number.innerText = `${i}`;
-  number.classList.add("number");
-  article.appendChild(number);
+
+  const imageDisplay = document.createElement("img") as HTMLImageElement;
+  imageDisplay.src = `https://source.unsplash.com/random/160x160?${i}`;
+  imageDisplay.classList.add('image-display');
+  imageDisplay.loading="lazy";
+
+  article.appendChild(imageDisplay);
+
+  const numberDisplay = document.createElement("p");
+  numberDisplay.innerText = `${i}`;
+  numberDisplay.classList.add("number-display");
+  article.appendChild(numberDisplay);
+
 
   const view = document.querySelector(".display");
   view?.appendChild(article);
@@ -50,7 +59,6 @@ const setup = () => {
     const renderedNum = document.querySelectorAll(".is-view").length
 
     document.getElementById("rendered-number")!.innerText = `${renderedNum} elements rendered`
-    console.log(`${renderedNum} elements rendered`)
 
   };
 
@@ -60,8 +68,6 @@ const setup = () => {
   const threshold = parseInt(
     (document.getElementById("threshold-value") as HTMLInputElement).value ?? 0
   );
-
-  console.log("observer options", { rootMargin, threshold });
 
   const observer = new IntersectionObserver(callback, {
     root: document.querySelector(".display"),
