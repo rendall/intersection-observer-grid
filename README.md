@@ -4,6 +4,6 @@ Each component has two modes, a _placeholder_ mode that is minimal, and a _rende
 
 Ideally, the user will never see the _placeholder_ mode, and will just think it is a long scroll of components in _render_ mode. In practice, there is some delay.
 
-The demo is here: <https://github.com/rendall/intersection-observer-grid>
+The demo is here: <https://rendall.github.io/intersection-observer-grid/>
 
-React version here:  <https://github.com/rendall/intersection-observer-grid/react.html>
+React version here:  <https://rendall.github.io/intersection-observer-grid/react.html>
