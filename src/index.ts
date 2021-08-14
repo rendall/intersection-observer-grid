@@ -4,8 +4,8 @@ const createArticle = (i: number) => {
 
   const imageDisplay = document.createElement("img") as HTMLImageElement;
   imageDisplay.src = `https://source.unsplash.com/random/160x160?${i}`;
-  imageDisplay.classList.add('image-display');
-  imageDisplay.loading="lazy";
+  imageDisplay.classList.add("image-display");
+  imageDisplay.loading = "lazy";
 
   article.appendChild(imageDisplay);
 
@@ -13,7 +13,6 @@ const createArticle = (i: number) => {
   numberDisplay.innerText = `${i}`;
   numberDisplay.classList.add("number-display");
   article.appendChild(numberDisplay);
-
 
   const view = document.querySelector(".display");
   view?.appendChild(article);
@@ -32,11 +31,14 @@ const makeDivs = (observer: IntersectionObserver) => {
       10000
   );
 
-  (new Array(numElements)).fill(0).map((z, i) => i).forEach( i => {
-    if (i % 100 === 0) createHeader(i);
-    const article = createArticle(i);
-    observer.observe(article);
-  })
+  new Array(numElements)
+    .fill(0)
+    .map((z, i) => i)
+    .forEach((i) => {
+      if (i % 100 === 0) createHeader(i);
+      const article = createArticle(i);
+      observer.observe(article);
+    });
 };
 
 const onSliderInput = (input: HTMLInputElement) => {
@@ -47,7 +49,6 @@ const onSliderInput = (input: HTMLInputElement) => {
 const onSliderChange = (e: InputEvent) => setup();
 
 const setup = () => {
-
   const allCells = () =>
     Array.from<HTMLDivElement>(document.querySelectorAll(".cells"));
 
@@ -58,9 +59,11 @@ const setup = () => {
         : entry.target.classList.remove("is-view")
     );
 
-    const renderedNum = document.querySelectorAll(".is-view").length
+    const renderedNum = document.querySelectorAll(".is-view").length;
 
-    document.getElementById("rendered-number")!.innerText = `${renderedNum} elements rendered`
+    document.getElementById(
+      "rendered-number"
+    )!.innerText = `${renderedNum} elements rendered`;
   };
 
   const rootMargin = `${
@@ -79,7 +82,9 @@ const setup = () => {
 
   makeDivs(observer);
 
-  const toggleView = document.querySelector("#toggle-view") as HTMLButtonElement;
+  const toggleView = document.querySelector(
+    "#toggle-view"
+  ) as HTMLButtonElement;
   toggleView.addEventListener("click", () => {
     document.querySelector(".display")!.classList.toggle("list-view");
   });

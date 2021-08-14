@@ -5,18 +5,27 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: { react:"./src/react-app.ts", index:"./src/index.ts" },
+  entry: { react: "./src/react-app.ts", index: "./src/index.ts" },
   output: {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
     host: "localhost",
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, "dist"),
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./src/react.html", filename: "react.html", excludeChunks:["index"], inject:"body" }),
-    new HtmlWebpackPlugin({ template: "./src/index.html", excludeChunks:["react"], inject:"body" }),
+    new HtmlWebpackPlugin({
+      template: "./src/react.html",
+      filename: "react.html",
+      excludeChunks: ["index"],
+      inject: "body",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      excludeChunks: ["react"],
+      inject: "body",
+    }),
 
     new MiniCssExtractPlugin(),
 

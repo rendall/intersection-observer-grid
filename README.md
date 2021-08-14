@@ -6,4 +6,4 @@ Ideally, the user will never see the _placeholder_ mode, and will just think it 
 
 The demo is here: <https://rendall.github.io/intersection-observer-grid/>
 
-React version here:  <https://rendall.github.io/intersection-observer-grid/react.html>
+React version here: <https://rendall.github.io/intersection-observer-grid/react.html>

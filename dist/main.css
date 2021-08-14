@@ -51,12 +51,14 @@ main section.display article.cell p.number-display {
   transform: translateY(-50%);
   width: 100%;
 }
-main section.display article.cell.is-view, main section.display article.cell.is-react {
+main section.display article.cell.is-view,
+main section.display article.cell.is-react {
   color: red;
   font-weight: bold;
 }
 main section.display article.cell.is-view p.number-display,
-main section.display article.cell.is-view img.image-display, main section.display article.cell.is-react p.number-display,
+main section.display article.cell.is-view img.image-display,
+main section.display article.cell.is-react p.number-display,
 main section.display article.cell.is-react img.image-display {
   display: block;
 }
@@ -81,7 +83,7 @@ main section.controller .observer-option {
 main section.controller .observer-option input {
   margin: 0 1rem;
 }
-main section.controller .observer-option input[type=range] {
+main section.controller .observer-option input[type="range"] {
   flex-grow: 1;
 }
 

@@ -4,11 +4,11 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx":"react",
+    "jsx": "react",
     "lib": ["dom", "es6"],
     "module": "es6",
     "skipLibCheck": true,
-    "strict":true,
+    "strict": true,
     "target": "es6"
   },
   "files": ["src/react-app.ts"]
