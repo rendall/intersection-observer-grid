@@ -1,9 +1,15 @@
-This is a proof of concept for handling grid layout and scrolling for potentially thousands of expensive-to-render elements or components.
+# 🚀 Welcome to your new awesome project!
 
-Each component has two modes, a _placeholder_ mode that is minimal, and a _render_ mode that is fully rendered.
+This project has been created using **webpack-cli**, you can now run
 
-Ideally, the user will never see the _placeholder_ mode, and will just think it is a long scroll of components in _render_ mode. In practice, there is some delay.
+```
+npm run build
+```
 
-The demo is here: <https://rendall.github.io/intersection-observer-grid/>
+or
 
-React version here:  <https://rendall.github.io/intersection-observer-grid/react.html>
+```
+yarn build
+```
+
+to bundle your application
