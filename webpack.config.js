@@ -12,6 +12,7 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    contentBase: path.join(__dirname, 'dist')
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/react.html", filename: "react.html", excludeChunks:["index"], inject:"body" }),
