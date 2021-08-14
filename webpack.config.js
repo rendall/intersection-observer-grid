@@ -14,9 +14,8 @@ const config = {
     host: "localhost",
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/react.html",
-    }),
+    new HtmlWebpackPlugin({ template: "./src/react.html", filename: "react.html", excludeChunks:["index"], inject:"body" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", excludeChunks:["react"], inject:"body" }),
 
     new MiniCssExtractPlugin(),
 
