@@ -4,7 +4,7 @@
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "build:sass": "npx sass main.scss:main.css",
+    "build:sass": "npx sass ./src/style.scss:./dist/main.css",
     "publish": "git subtree push --prefix dist origin gh-pages",
     "start": "npx http-server -a localhost",
     "watch": "webpack --watch",
